@@ -364,7 +364,7 @@ footer ul li a {
     align-items: center;
     width: 100%;
     background-color: black;
-    height: 9vh;
+    height: 11vh;
 }
 
 .song-name {
@@ -499,7 +499,7 @@ footer ul li a {
 
     .main {
         gap: 0px;
-        height: 95vh;
+        height: 100vh;
     }
 
     .song-list ul li:active, .song-list ul li:focus {
