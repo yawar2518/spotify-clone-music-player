@@ -46,9 +46,9 @@ function formatTime(timeInSeconds) {
 async function getSongs(folder) {
     currFolder = folder
     // Local  fetch
-    let a = await fetch(`http://127.0.0.1:5500/songs/${currFolder}/`)
+    // let a = await fetch(`http://127.0.0.1:5500/songs/${currFolder}/`)
     // Git pages fetch
-    // let a = await fetch(`songs/${currFolder}/`)
+    let a = await fetch(`songs/${currFolder}/`)
     let response = await a.text()
 
     // Create temporary div to parse folder content
@@ -109,7 +109,10 @@ const playMusic = (track) => {
 // Fetch all album folders from /songs directory and create cards
 // Each folder must contain info.JSON for title/description
 async function getAlbums() {
-    let a = await fetch("http://127.0.0.1:5500/songs")
+    //For local use
+    // let a = await fetch("http://127.0.0.1:5500/songs")
+    //For Deployment
+    let a = await fetch("/songs")
     let response = await a.text()
 
     let div = document.createElement("div")
@@ -125,7 +128,10 @@ async function getAlbums() {
             folder = e.href.split("/songs/")[1]
 
             // Each folder has info.JSON with album title + description
-            let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.JSON`)
+            //For Local use
+            // let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.JSON`)
+            //For Deployment
+            let a = await fetch(`/songs/${folder}/info.JSON`)
             let response = await a.json()
 
             // Create album card inside playlists-container
