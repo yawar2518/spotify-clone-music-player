@@ -498,6 +498,8 @@ footer ul li a {
 @media only screen and (max-width: 600px) {
     .main {
         gap: 0px;
+        width: 100vw;
+        height: 95vh;
     }
 
     .song-list ul li:active, .song-list ul lifocus {
@@ -547,7 +549,7 @@ footer ul li a {
 
 
     .playlists {
-        height: 72vh;
+        height: 77.5vh;
         width: 90vw;
     }
 
@@ -566,9 +568,9 @@ footer ul li a {
     }
 
     .play-bar {
-        padding-top: 10px;
-        height: 17vh;
-        gap: 35px;
+        padding-top: 1vh;
+        height: 13vh;
+        gap: 4vh;
     }
 
     .bar-flex {
