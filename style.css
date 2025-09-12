@@ -519,10 +519,9 @@ footer ul li a {
         z-index: 1;
         left: -100%;
         transition: all 1s;
-        height: 100vh;
+        height: 100%;
         background-color: black;
-        width: 70vw;
-        /* transition: all 1s; */
+        width: 70dvw;
     }
 
     .left .close {
