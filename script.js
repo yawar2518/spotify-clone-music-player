@@ -20,6 +20,9 @@ let folder
 // Stores slider (volume) percentage value for background fill
 let Slidervalue
 
+// Stores previous volume level for unmute
+let previousVolume = 0.5
+
 
 
 // ---------------------------
@@ -227,6 +230,9 @@ async function main() {
     // Load album cards on page load
     await getAlbums()
 
+    // Get volume slider element
+    let volume = document.getElementById("volume");
+
     // Play / Pause button in play bar
     let play = document.getElementById("play-div")
     play.addEventListener("click", () => {
@@ -275,6 +281,7 @@ async function main() {
         if (currSrc.includes(window.location.origin)) {
             currSrc = currSrc.replace(window.location.origin + "/", "")
         }
+        currSrc = decodeURIComponent(currSrc)
         let index = songs.indexOf(currSrc)
         if (index > 0) {
             let previousSong = songs[index - 1].split(`${currFolder}/`)[1].replaceAll("%20", " ")
@@ -289,6 +296,7 @@ async function main() {
         if (currSrc.includes(window.location.origin)) {
             currSrc = currSrc.replace(window.location.origin + "/", "")
         }
+        currSrc = decodeURIComponent(currSrc)
         let index = songs.indexOf(currSrc)
         if (index >= 0 && index < songs.length - 1) {
             let nextSong = songs[index + 1].split(`${currFolder}/`)[1].replaceAll("%20", " ")
@@ -298,15 +306,15 @@ async function main() {
 
     // Volume icon toggle → mute/unmute
     document.querySelector(".volume").firstElementChild.addEventListener("click", e=>{
-        if(e.target.src.includes("volume.svg")){
-            e.target.src = e.target.src.replace("volume","mute")
-            currSong.volume = 0
-            volume.value = 0
-        }
-        else{
-            e.target.src = e.target.src.replace("mute","volume")
-            currSong.volume = .100
-            volume.value = 10
+        if (currSong.volume > 0) {
+            previousVolume = currSong.volume;
+            currSong.volume = 0;
+            volume.value = 0;
+            e.target.src = "assets/svgs/mute.svg";
+        } else {
+            currSong.volume = previousVolume;
+            volume.value = previousVolume * 100;
+            e.target.src = "assets/svgs/volume.svg";
         }
         updateSliderFill(volume);
     })
