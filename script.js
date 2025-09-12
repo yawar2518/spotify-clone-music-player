@@ -45,53 +45,86 @@ function formatTime(timeInSeconds) {
 // Called when user clicks an album card from right section (index.html → .playlists-container)
 async function getSongs(folder) {
     currFolder = folder
-    // Local  fetch
+    // Local  use
     // let a = await fetch(`http://127.0.0.1:5500/songs/${currFolder}/`)
-    // Git pages fetch
-    let a = await fetch(`songs/${currFolder}/`)
-    let response = await a.text()
+    // let response = await a.text()
 
-    // Create temporary div to parse folder content
-    let div = document.createElement("div")
-    div.innerHTML = response
-    let as = div.getElementsByTagName("a")
-    songs = []
+    // Deployment use
+    let a = await fetch("albums.json")
+    let response = await a.json()
 
-    // Collect only .mp3 files into songs[]
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        let song = element.href
-        if (song.endsWith(".mp3")) {
-            songs.push(song)
-        }
-    }
+    // //local use
+    // // Create temporary div to parse folder content
+    // let div = document.createElement("div")
+    // div.innerHTML = response
+    // let as = div.getElementsByTagName("a")
+    // songs = []
 
-    // Get the <ul> inside .song-list (index.html → left sidebar library)
-    let songUL = document.querySelector(".song-list").getElementsByTagName("ul")[0]
+    // // Collect only .mp3 files into songs[]
+    // for (let index = 0; index < as.length; index++) {
+    //     const element = as[index];
+    //     let song = element.href
+    //     if (song.endsWith(".mp3")) {
+    //         songs.push(song)
+    //     }
+    // }
+
+    // // Get the <ul> inside .song-list (index.html → left sidebar library)
+    // let songUL = document.querySelector(".song-list").getElementsByTagName("ul")[0]
+    // songUL.innerHTML = ""
+
+    // // Render each song into sidebar library
+    // for (const song of songs) {
+    //     let s = song.split(`songs/${currFolder}/`)[1]
+    //     songUL.innerHTML += `<li>
+    //                        <div class="image">
+    //                         <img id="cover" src="assets/images/song.jpeg" alt="song cover">
+    //                         <img id="play" src="assets/svgs/play-white.svg" alt="play song">
+    //                        </div> 
+    //                        <div class="info">
+    //                         <h3>${s.replaceAll("%20", " ")}</h3>
+    //                         <p>Artist</p>
+    //                        </div>
+    //                     </li>`
+    // }
+
+    // // Attach click event to each song in sidebar → play it
+    // Array.from(document.querySelector(".song-list").getElementsByTagName("li")).forEach(e => {
+    //     e.addEventListener('click', () => {
+    //         playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+    //     })
+    // });
+
+    let album = response[folder]
+
+    songs = album.songs.map(song => `songs/${folder}/` + song)
+    currFolder = folder
+
+    let songUL = document.querySelector(".song-list ul")
     songUL.innerHTML = ""
 
-    // Render each song into sidebar library
     for (const song of songs) {
-        let s = song.split(`songs/${currFolder}/`)[1]
-        songUL.innerHTML += `<li>
-                           <div class="image">
-                            <img id="cover" src="assets/images/song.jpeg" alt="song cover">
-                            <img id="play" src="assets/svgs/play-white.svg" alt="play song">
-                           </div> 
-                           <div class="info">
-                            <h3>${s.replaceAll("%20", " ")}</h3>
-                            <p>Artist</p>
-                           </div>
-                        </li>`
+        let s = song.split(`${folder}/`)[1]
+        songUL.innerHTML += `
+            <li>
+                <div class="image">
+                    <img id="cover" src="assets/images/song.jpeg" alt="song cover">
+                    <img id="play" src="assets/svgs/play-white.svg" alt="play song">
+                </div> 
+                <div class="info">
+                    <h3>${s.replaceAll("%20", " ")}</h3>
+                    <p>Artist</p>
+                </div>
+            </li>`
     }
 
-    // Attach click event to each song in sidebar → play it
-    Array.from(document.querySelector(".song-list").getElementsByTagName("li")).forEach(e => {
-        e.addEventListener('click', () => {
-            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+    Array.from(document.querySelectorAll(".song-list li")).forEach(li => {
+        li.addEventListener("click", () => {
+            playMusic(li.querySelector(".info h3").innerText.trim())
         })
-    });
+    })
 }
+
 
 
 
@@ -111,43 +144,68 @@ const playMusic = (track) => {
 async function getAlbums() {
     //For local use
     // let a = await fetch("http://127.0.0.1:5500/songs")
+    // let response = await a.text()
     //For Deployment
-    let a = await fetch("songs/")
-    let response = await a.text()
+    let a = await fetch("albums.json")
+    let response = await a.json()
 
-    let div = document.createElement("div")
-    let container = document.querySelector(".playlists-container") // index.html → right panel
-    div.innerHTML = response
+    // For local use
 
-    let anchors = div.getElementsByTagName("a")
-    let array = Array.from(anchors)
+    // let div = document.createElement("div")
+    // let container = document.querySelector(".playlists-container") // index.html → right panel
+    // div.innerHTML = response
 
-    for (let index = 0; index < array.length; index++) {
-        const e = array[index];
-        if (e.href.includes("songs/")) {
-            folder = e.href.split("songs/")[1]
+    // let anchors = div.getElementsByTagName("a")
+    // let array = Array.from(anchors)
 
-            // Each folder has info.JSON with album title + description
-            //For Local use
-            // let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.JSON`)
-            //For Deployment
-            let a = await fetch(`songs/${folder}/info.JSON`)
-            let response = await a.json()
+    // for (let index = 0; index < array.length; index++) {
+    //     const e = array[index];
+    //     if (e.href.includes("songs/")) {
+    //         folder = e.href.split("songs/")[1]
 
-            // Create album card inside playlists-container
-            container.innerHTML += `<div data-folder="${folder}" class="card">
-                        <div class="image">
-                            <img id="cover-image" src="songs/${folder}/cover.jpeg" alt="playlist image">
-                            <div>
-                                <img src="assets/svgs/pause.svg" alt="play hover">
-                            </div>
-                        </div>
-                        <div class="info">
-                            <h2>${response.title}</h2>
-                            <p>${response.description}</p>
-                        </div>                 
-                    </div>`
-        }
+    //         // Each folder has info.JSON with album title + description
+    //         //For Local use
+    //         // let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.JSON`)
+    //         //For Deployment
+    //         let a = await fetch(`songs/${folder}/info.JSON`)
+    //         let response = await a.json()
+
+    //         // Create album card inside playlists-container
+    //         container.innerHTML += `<div data-folder="${folder}" class="card">
+    //                     <div class="image">
+    //                         <img id="cover-image" src="songs/${folder}/cover.jpeg" alt="playlist image">
+    //                         <div>
+    //                             <img src="assets/svgs/pause.svg" alt="play hover">
+    //                         </div>
+    //                     </div>
+    //                     <div class="info">
+    //                         <h2>${response.title}</h2>
+    //                         <p>${response.description}</p>
+    //                     </div>                 
+    //                 </div>`
+    //     }
+    // }
+
+    //For Deployment
+    // Fetch album info from albums.json instead of folder listing
+    let container = document.querySelector(".playlists-container")
+    container.innerHTML = ""
+
+    for (const folder in response) {
+        let album = response[folder]
+        container.innerHTML += `
+            <div data-folder="${folder}" class="card">
+                <div class="image">
+                    <img id="cover-image" src="${album.cover}" alt="playlist image">
+                    <div>
+                        <img src="assets/svgs/pause.svg" alt="play hover">
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>${album.title}</h2>
+                    <p>${album.description}</p>
+                </div>
+            </div>`
     }
 
     // On clicking an album card → load songs of that folder in left sidebar
