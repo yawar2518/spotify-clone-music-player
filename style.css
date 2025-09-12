@@ -495,46 +495,41 @@ footer ul li a {
 
 /* Mobile Phones*/
 
-/* Mobile Phones */
-
 @media only screen and (max-width: 600px) {
 
     .main {
-        gap: 0;
-        width: 100%;
-        height: 100dvh; /* fixes iOS Safari bar issue */
+        gap: 0px;
+        height: 90vh;
     }
 
-    .song-list ul li:active, 
-    .song-list ul li:focus {
-        background-color: rgba(110, 110, 110, 0.182);
-    }
+    .song-list ul li:active, .song-list ul li:focus {
+    background-color: rgba(110, 110, 110, 0.182);
+  }
 
     .left {
         position: absolute;
-        z-index: 1000;
-        left: -100%; /* fix: must be -100% not -100 */
-        top: 0;
-        transition: left 0.3s ease;
-        height: 100dvh;
+        z-index: 1;
+        left: -100%;
+        transition: all 1s;
+        height: 90%;
         background-color: black;
-        width: 70%;
+        width: 70dvw;
     }
 
     .left .close {
         display: block;
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 1%;
+        left: 90%;
     }
 
     .right {
         width: 100%;
-        height: 100%;
+        height: 90%;
     }
 
     .hamburger {
-        display: flex; /* changed to flex so align-items/justify-content works */
+        display: block;
         margin-right: 3%;
         align-items: center;
         justify-content: center;
@@ -545,15 +540,17 @@ footer ul li a {
         display: flex;
         align-items: center;
         gap: 10%;
+
     }
 
     .header-right {
         justify-content: space-between;
     }
 
+
     .playlists {
         height: 70%;
-        width: 90%;
+        width: 100%;
     }
 
     .playlists h1 {
@@ -561,60 +558,85 @@ footer ul li a {
     }
 
     .playlists-container {
-        width: 100%;
-        height: 100%;
+        width: 88vw;
+        height: 95%;
     }
 
     .card {
-        width: 45%;
+        width: 30vw;
         height: 20vh;
     }
 
     .play-bar {
         padding-top: 1vh;
-        height: 25%;
-        gap: 2vh;
+        height: 19%;
+        gap: 7vh;
+    }
+
+    .play-bar .seekbar{
+        width: 70%;
     }
 
     .bar-flex {
         flex-direction: column;
         width: 100%;
-        height: 100%;
+        height: 20%;
     }
 
     .song-duration {
-        font-size: 10px;
-        margin-left: 0;
+        font-size: 9px;
+        margin-left: 15vw;
     }
 
     .song-name {
-        font-size: 13px;
+        font-size: 12px;
         width: 100%;
         text-align: center;
     }
 
     .play-bar ul {
-        margin-left: 0;
+        margin-left: 0%;
     }
 
     .slider {
         margin-top: 0.4vh;
-        width: 30vw; /* wider so usable on mobile */
+        width: 10vw;
     }
 
     .duration-volume {
         width: 100%;
         justify-content: space-around;
-        margin-left: 0;
+        margin-left: 0%;
     }
 
-    .volume img {
-        width: 14px;
+    .volume img {   
+        width: 4vw;
+    }
+
+    .actions{
+        height: 16%;
+    }
+
+    .library{
+        height: 80%;
+    }
+
+    footer{
+        align-items: center;
+        height: 4%;
+        justify-content: center;
+    }
+
+    footer ul li{
+        font-size: 2vw;
+        justify-content: space-between;
     }
 
     .song-list {
-        height: 60vh;
+        height: 80%;
+        width: 90%;
     }
+
 }
 
 
