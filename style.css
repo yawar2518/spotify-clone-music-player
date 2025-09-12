@@ -246,6 +246,7 @@ footer ul li a {
 }
 
 .buttons button {
+    color: #121212;
     font-size: 14px;
     font-weight: 700;
     border-radius: 34px;
@@ -264,7 +265,7 @@ footer ul li a {
     flex-direction: column;
     gap: 15px;
     padding: 22px;
-    height: 80vh;
+    height: 78vh;
 }
 
 .playlists-container {
@@ -546,7 +547,8 @@ footer ul li a {
 
 
     .playlists {
-        height: 79vh;
+        height: 72vh;
+        width: 90vw;
     }
 
     .playlists h1 {
@@ -565,7 +567,7 @@ footer ul li a {
 
     .play-bar {
         padding-top: 10px;
-        height: 12vh;
+        height: 17vh;
         gap: 35px;
     }
 
