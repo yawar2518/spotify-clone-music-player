@@ -72,10 +72,10 @@ async function getSongs(folder) {
 
     // Render each song into sidebar library
     for (const song of songs) {
-        let s = song.split(`/songs/${currFolder}/`)[1]
+        let s = song.split(`songs/${currFolder}/`)[1]
         songUL.innerHTML += `<li>
                            <div class="image">
-                            <img id="cover" src="/assets/images/song.jpeg" alt="song cover">
+                            <img id="cover" src="assets/images/song.jpeg" alt="song cover">
                             <img id="play" src="assets/svgs/play-white.svg" alt="play song">
                            </div> 
                            <div class="info">
@@ -98,7 +98,7 @@ async function getSongs(folder) {
 // Play the given track from current folder
 // Updates audio src, plays it, and shows track name in play bar
 const playMusic = (track) => {
-    currSong.src = `/songs/${currFolder}/` + track
+    currSong.src = `songs/${currFolder}/` + track
     currSong.play()
     img.src = "assets/svgs/play.svg"
     document.querySelector(".song-name").innerHTML = track
@@ -112,7 +112,7 @@ async function getAlbums() {
     //For local use
     // let a = await fetch("http://127.0.0.1:5500/songs")
     //For Deployment
-    let a = await fetch("/songs")
+    let a = await fetch("songs")
     let response = await a.text()
 
     let div = document.createElement("div")
@@ -124,20 +124,20 @@ async function getAlbums() {
 
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
-        if (e.href.includes("/songs/")) {
-            folder = e.href.split("/songs/")[1]
+        if (e.href.includes("songs/")) {
+            folder = e.href.split("songs/")[1]
 
             // Each folder has info.JSON with album title + description
             //For Local use
             // let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.JSON`)
             //For Deployment
-            let a = await fetch(`/songs/${folder}/info.JSON`)
+            let a = await fetch(`songs/${folder}/info.JSON`)
             let response = await a.json()
 
             // Create album card inside playlists-container
             container.innerHTML += `<div data-folder="${folder}" class="card">
                         <div class="image">
-                            <img id="cover-image" src="/songs/${folder}/cover.jpeg" alt="playlist image">
+                            <img id="cover-image" src="songs/${folder}/cover.jpeg" alt="playlist image">
                             <div>
                                 <img src="assets/svgs/pause.svg" alt="play hover">
                             </div>
