@@ -2,7 +2,7 @@
   "Afterglow": {
     "title": "Afterglow",
     "description": "Only echoes remain behind.",
-    "cover": "songs\\Afterglow\\cover.jpeg",
+    "cover": "songs/Afterglow/cover.jpeg",
     "songs": [
       "King Gizzard.mp3",
       "Magical Romance.mp3"
@@ -11,7 +11,7 @@
   "Bloodlines": {
     "title": "Bloodlines",
     "description": "A legacy written in sound.",
-    "cover": "songs\\Bloodlines\\cover.jpeg",
+    "cover": "songs/Bloodlines/cover.jpeg",
     "songs": [
       "After Midnight.mp3",
       "Done With You.mp3",
@@ -22,7 +22,7 @@
   "Echo Chamber": {
     "title": "Echo Chamber",
     "description": "Where voices never stop.",
-    "cover": "songs\\Echo Chamber\\cover.jpeg",
+    "cover": "songs/Echo Chamber/cover.jpeg",
     "songs": [
       "Comfort.mp3",
       "Common Ground.mp3",
@@ -34,7 +34,7 @@
   "Fading Horizon": {
     "title": "Fading Horizon",
     "description": "Hope slowly drifts away.",
-    "cover": "songs\\Fading Horizon\\cover.jpeg",
+    "cover": "songs/Fading Horizon/cover.jpeg",
     "songs": [
       "Cynicism Management.mp3",
       "Dont Run Away.mp3",
@@ -44,7 +44,7 @@
   "Lifeline": {
     "title": "Lifeline",
     "description": "Every beat keeps you alive.",
-    "cover": "songs\\Lifeline\\cover.jpeg",
+    "cover": "songs/Lifeline/cover.jpeg",
     "songs": [
       "Emerald Park.mp3",
       "Forget.mp3",
@@ -56,7 +56,7 @@
   "Midnight Echoes": {
     "title": "Midnight Echoes",
     "description": "Dark beats for sleepless nights.",
-    "cover": "songs\\Midnight Echoes\\cover.jpeg",
+    "cover": "songs/Midnight Echoes/cover.jpeg",
     "songs": [
       "Color Out.mp3",
       "Come On.mp3",
@@ -76,7 +76,7 @@
   "Neon Pulse": {
     "title": "Neon Pulse",
     "description": "The city never stops moving.",
-    "cover": "songs\\Neon Pulse\\cover.jpeg",
+    "cover": "songs/Neon Pulse/cover.jpeg",
     "songs": [
       "Sorry.mp3",
       "The Prism.mp3"
@@ -85,7 +85,7 @@
   "Neon Streets": {
     "title": "Neon Streets",
     "description": "Chaos lives in the city",
-    "cover": "songs\\Neon Streets\\cover.jpeg",
+    "cover": "songs/Neon Streets/cover.jpeg",
     "songs": [
       "Doppleganger.mp3",
       "How Far I Will Go For You.mp3",
@@ -99,7 +99,7 @@
   "Oblivion": {
     "title": "Oblivion",
     "description": "Lost forever in sound.",
-    "cover": "songs\\Oblivion\\cover.jpeg",
+    "cover": "songs/Oblivion/cover.jpeg",
     "songs": [
       "Caribbean Sun.mp3",
       "give me a sign.mp3",
@@ -111,7 +111,7 @@
   "Shadow Realm": {
     "title": "Shadow Realm",
     "description": "Darkness rises with sound.",
-    "cover": "songs\\Shadow Realm\\cover.jpeg",
+    "cover": "songs/Shadow Realm/cover.jpeg",
     "songs": [
       "As Long As You Are.mp3",
       "Flame Up.mp3",
@@ -123,7 +123,7 @@
   "Silent Storm": {
     "title": "Silent Storm",
     "description": "Silence hides the storm.",
-    "cover": "songs\\Silent Storm\\cover.jpeg",
+    "cover": "songs/Silent Storm/cover.jpeg",
     "songs": [
       "Break the Rain.mp3",
       "No Easy Way.mp3"
@@ -132,7 +132,7 @@
   "The Last Wave": {
     "title": "The Last Wave",
     "description": "A journey to the end.",
-    "cover": "songs\\The Last Wave\\cover.jpeg",
+    "cover": "songs/The Last Wave/cover.jpeg",
     "songs": [
       "Burning You.mp3",
       "Crystals In Our Eyes.mp3",

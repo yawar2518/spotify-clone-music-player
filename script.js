@@ -269,20 +269,30 @@ async function main() {
     })
 
     // Previous button → play previous song in songs[]
-    previous.addEventListener("click", () => {
-        let index = songs.indexOf(currSong.src)
-        let previous = songs[index - 1].split(`${currFolder}/`)[1].replaceAll("%20", " ")
-        if (index <= songs.length) {
-            playMusic(previous)
+    document.getElementById("previous").addEventListener("click", () => {
+        // Normalize currSong.src to relative path
+        let currSrc = currSong.src
+        if (currSrc.includes(window.location.origin)) {
+            currSrc = currSrc.replace(window.location.origin + "/", "")
+        }
+        let index = songs.indexOf(currSrc)
+        if (index > 0) {
+            let previousSong = songs[index - 1].split(`${currFolder}/`)[1].replaceAll("%20", " ")
+            playMusic(previousSong)
         }
     })
 
     // Next button → play next song in songs[]
-    next.addEventListener("click", () => {
-        let index = songs.indexOf(currSong.src)
-        let next = songs[index + 1].split(`${currFolder}/`)[1].replaceAll("%20", " ")
-        if (index >= 0) {
-            playMusic(next)
+    document.getElementById("next").addEventListener("click", () => {
+        // Normalize currSong.src to relative path
+        let currSrc = currSong.src
+        if (currSrc.includes(window.location.origin)) {
+            currSrc = currSrc.replace(window.location.origin + "/", "")
+        }
+        let index = songs.indexOf(currSrc)
+        if (index >= 0 && index < songs.length - 1) {
+            let nextSong = songs[index + 1].split(`${currFolder}/`)[1].replaceAll("%20", " ")
+            playMusic(nextSong)
         }
     })
 
