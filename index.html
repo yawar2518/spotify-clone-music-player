@@ -1,0 +1,140 @@
+<!-- HTML structure for Spotify Clone app -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <!-- Favicon and link to external CSS file (style.css) for styling -->
+    <link rel="shortcut icon" href="/assets/images/favicon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main container for the entire app layout -->
+    <section class="main">
+        <!-- Left sidebar: contains navigation, library, and footer -->
+        <div class="left">
+            <!-- Close button for mobile hamburger menu (hidden on desktop) -->
+            <div class="close">
+                <img src="assets/svgs/close.svg" alt="close hamburger menu">
+            </div>
+            <!-- Actions section: logo and navigation links (Home, Search) -->
+            <div class="actions">
+                <div class="logo">
+                    <img src="assets/svgs/logo.svg" alt="spotify logo">
+                    <p>Spotify</p>
+                </div>
+                <ul>
+                    <li> <img src="assets/svgs/home.svg" alt="home icon"> <a href="">Home</a></li>
+                    <li> <img src="assets/svgs/search.svg" alt="search icon"> <a href="">Search</a></li>
+                </ul>
+            </div>
+            <!-- Library section: header and list of songs (populated by JS) -->
+            <div class="library">
+                <div class="header-left-library">
+                    <img src="assets/svgs/library.svg" alt="library icon">
+                    <p>Your library</p>
+                </div>
+                <div class="song-list">
+                    <ul>
+                        <!-- Placeholder for song list items (dynamically added by script.js) -->
+                        <!-- Example commented out:
+                        <li>
+                           <div class="image">
+                            <img id="cover" src="/assets/images/playlist_1.jpg" alt="song cover">
+                            <img id="play" src="assets/svgs/play-white.svg" alt="play song">
+                           </div>
+                           <div class="info">
+                            <h3>Name</h3>
+                            <p>artist</p>
+                           </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <!-- Footer with legal links -->
+            <footer>
+                <ul>
+                    <li><a href="https://www.spotify.com/pk-en/legal/end-user-agreement/">Legal</a></li>
+                    <li><a href="https://www.spotify.com/pk-en/safetyandprivacy">Privacy Center</a></li>
+                    <li><a href="https://www.spotify.com/pk-en/legal/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="https://www.spotify.com/pk-en/legal/cookies-policy/">Cookies</a></li>
+                    <li><a href="https://www.spotify.com/pk-en/legal/privacy-policy/#s3">About Ads</a></li>
+                    <li><a href="https://www.spotify.com/pk-en/accessibility">Accessibility</a></li>
+                </ul>
+            </footer>
+        </div>
+        <!-- Right panel: header, playlists, and play bar -->
+        <div class="right">
+            <!-- Header with navigation arrows, hamburger menu, and buttons -->
+            <div class="header-right">
+                <div class="left-right">
+                    <!-- Hamburger menu for mobile (toggles left sidebar) -->
+                    <div class="hamburger">
+                    <img src="assets/svgs/hamburger.svg" alt="hamburger for phones">
+                </div>
+                    <ul>
+                        <li> <a href="#"> <img src="assets/images/left-arrow.png" alt="left arrow"> </a> </li>
+                        <li> <a href="#"> <img src="assets/images/right-arrow.png" alt="right arrow"> </a> </li>
+                    </ul>
+                </div>
+                <div class="buttons">
+                    <button id="signup" >Sign up</button>
+                    <button id="login" >Log in</button>
+                </div>
+            </div>
+            <!-- Playlists section: title and container for album cards (populated by JS) -->
+            <div class="playlists">
+                <h1>Spotify Playlists</h1>
+                <div class="playlists-container">
+                    <!-- Placeholder for playlist cards (dynamically added by script.js) -->
+                    <!-- Example commented out:
+                    <div data-folder="Album" class="card">
+                        <div class="image">
+                            <img id= "cover-image" src="assets/images/playlist_1.jpg" alt="playlist image">
+                            <div>
+                                <img src="assets/svgs/pause.svg" alt="play hover">
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h2>Arjit Songs</h2>
+                            <p>All new hits of Arjit Singh in the bollywood.</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- Play bar: controls for playback, volume, and seekbar -->
+            <div class="play-bar">
+                <div class="bar-flex">
+                    <!-- Displays current song name (updated by JS) -->
+                    <div class="song-name"></div>
+                    <ul>
+                        <!-- Previous, play/pause, next buttons -->
+                        <li> <a href="#"> <img id="previous" src="assets/svgs/previous.svg" alt="previous song"> </a> </li>
+                        <li><div id="play-div">
+                            <img id="play-btn" src="assets/svgs/play.svg" alt="play song">
+                        </div></li>
+                        <li> <a href="#"> <img id="next" src="assets/svgs/forward.svg" alt="next song"> </a> </li>
+                    </ul>
+                    <div class="duration-volume">
+                        <!-- Volume control with icon and slider -->
+                        <div class="volume">
+                            <img src="assets/svgs/volume.svg" alt="volume logo">
+                            <input class="slider" min="0" max="100" value="50" type="range" name="volume" id="volume">
+                        </div>
+                        <!-- Displays song duration (updated by JS) -->
+                        <div class="song-duration"></div>
+                    </div>
+                    </div>
+                    <!-- Seekbar for song progress (interactive via JS) -->
+                    <div class="seekbar">
+                        <div class="played"></div>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!-- Link to JavaScript file (script.js) for functionality -->
+    <script src="script.js"></script>
+</body>
+</html>
