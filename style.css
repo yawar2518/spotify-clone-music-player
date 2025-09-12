@@ -499,7 +499,7 @@ footer ul li a {
 
     .main {
         gap: 0px;
-        height: 100vh;
+        height: 95vh;
     }
 
     .song-list ul li:active, .song-list ul li:focus {
