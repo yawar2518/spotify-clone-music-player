@@ -2,7 +2,7 @@
 
 A sleek, web-based music player inspired by Spotify, built entirely with HTML, CSS, and JavaScript. Dive into a curated collection of albums, enjoy seamless playback, and experience a responsive interface that mimics the feel of a modern streaming platform.
 
-![Spotify Clone Preview](assets/images/song.jpeg) <!-- Placeholder for a screenshot if available -->
+![Spotify Clone Preview](preview.png) <!-- Placeholder for a screenshot if available -->
 
 ## ✨ Features
 
@@ -82,10 +82,6 @@ Contributions are welcome! Feel free to:
 - Report bugs or suggest features via Issues.
 - Submit pull requests for improvements.
 - Star the repo if you find it useful! ⭐
-
-## 📄 License
-
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
